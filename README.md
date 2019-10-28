@@ -2,11 +2,11 @@
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.html)
 
 # NanoVNA-MATLAB
-MATLAB scripts for NanoVNA vector network analyzer. Connect, save S2P file and display Logmag and Smith chart
+MATLAB scripts for NanoVNA vector network analyzer. Connect, save S2P file and display Logmag, Smith chart and TDR step response
 
 ## Overview
 
-With these MATLAB scripts you can connect to your NanoVNA, execute commands, get S11 and S21 data, save it to S2P file and plot LOGMAG and SMITH charts. All can be done from MATLAB environment and it don't requires any external application.
+With these MATLAB scripts you can connect to your NanoVNA, execute commands, get S11 and S21 data, save it to S2P file and plot LOGMAG, SMITH chart and TDR step response. All can be done from MATLAB environment and it don't requires any external application.
 
 ## Instructions
 

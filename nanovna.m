@@ -20,7 +20,7 @@
 %    You should have received a copy of the GNU General Public License
 %    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 function nanovna()
-    clear; clc;
+    clear; close all; clc;
     hCom = nanoOpen('COM3');
     cleaner = onCleanup(@() nanoClose(hCom));
 
@@ -32,9 +32,9 @@ function nanovna()
     %rfwrite(netwk.Parameters, netwk.Frequencies, 'data.s2p');
     %netwk = sparameters('data.s2p');
 
-    
     % plot S11 LOGMAG
-    figure(1)
+    fig = figure('Name','LOGMAG', 'NumberTitle','off');
+    %set(fig,'Position',[10 10 320 240])
     rfplot(netwk,1,1, '-r')
     ylim([-90 10])
     hold on
@@ -42,6 +42,32 @@ function nanovna()
     hold off
     
     % plot S11 SMITH CHART
-    figure(2);
+    fig = figure('Name','SMITH', 'NumberTitle','off');
+    %set(fig,'Position',[10 10 320 240])
     smith(netwk,1,1);
+    
+    
+    %===plot TDR step response===
+    
+    % fit to a rational function object
+    tdrfit = rationalfit(netwk.Frequencies, rfparam(netwk, 1,1));
+    
+    % Parameters for a step signal
+    Ts = 3e-12;
+    N = 32768;
+    Trise = 1e-10;
+    
+    % Calculate the step response for TDR and plot it
+    [tdr,t1] = stepresp(tdrfit,Ts,N,Trise);
+    tdrz = arrayfun(@(x) 50 * (1+x)/(1-x), tdr);
+    
+    fig = figure('Name','TDR Step Response', 'NumberTitle','off');
+    plot(t1*1e9, tdrz, 'LineWidth',2);
+    ylabel('TDR Step Response [Ohm]');
+    xlabel('Delay [ns]');
+    xlim([0 Ts*N*1e9])
+    ylim([10 60])
+    grid on;
+    grid minor;
+    
 end
