@@ -24,7 +24,9 @@ function rfwrite(s, freq, fileName)
     order = size(s,1);
     fid = fopen(fileName, 'wt');
     % comment
-    fprintf(fid, '%s\n', '! created with rfwrite');
+    fprintf(fid, '%s\n', '! created with rfwrite.m by alex_m');
+    fprintf(fid, '%s\n', '! https://github.com/qrp73/NanoVNA-MATLAB');
+    fprintf(fid, '%s\n', '! ');
     % specifier line
     fprintf(fid, '%s\n', '# Hz S RI R 50');
     % comment-format
@@ -54,4 +56,5 @@ function rfwrite(s, freq, fileName)
         end;
         fprintf(fid, '\n');
     end;
+    fclose(fid);
 end
