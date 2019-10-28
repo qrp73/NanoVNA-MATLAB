@@ -3,7 +3,7 @@ MATLAB scripts for NanoVNA vector network analyzer. Connect, save S2P file and d
 
 ## Overview
 
-With this MATLAB script you can connect to NanoVNA, execute commands, get S11 and S21 data, save it to S2P file and plot LOGMAG and SMITH charts. All can be done from MATLAB environment and don't requires any external application.
+With these MATLAB scripts you can connect to your NanoVNA, execute commands, get S11 and S21 data, save it to S2P file and plot LOGMAG and SMITH charts. All can be done from MATLAB environment and it don't requires any external application.
 
 ## Instructions
 
