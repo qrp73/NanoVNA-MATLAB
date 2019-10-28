@@ -1,3 +1,6 @@
+![Language](https://img.shields.io/badge/language-MATLAB-red.svg)
+[![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl.html)
+
 # NanoVNA-MATLAB
 MATLAB scripts for NanoVNA vector network analyzer. Connect, save S2P file and display Logmag and Smith chart
 
